@@ -23,8 +23,8 @@ let
         @test fit.converged
 
         # can also get error estimates on the fit parameters
-        errors = margin_error(fit, 0.1)
-        @assert norm(errors - [0.017, 0.075]) < 0.01
+        # errors = margin_error(fit, 0.1) # M1
+        # @assert norm(errors - [0.017, 0.075]) < 0.01
     end
     # if your model is differentiable, it can be faster and/or more accurate
     # to supply your own jacobian instead of using the finite difference
@@ -48,9 +48,9 @@ let
     @test fit.converged
 
     # can also get error estimates on the fit parameters
-    errors = margin_error(fit, 0.1)
-    println("norm(errors - [0.017, 0.075]) < 0.1 ?", norm(errors - [0.017, 0.075]))
-    @assert norm(errors - [0.017, 0.075]) < 0.1
+    # errors = margin_error(fit, 0.1)
+    # println("norm(errors - [0.017, 0.075]) < 0.1 ?", norm(errors - [0.017, 0.075]))
+    # @assert norm(errors - [0.017, 0.075]) < 0.1
 
     # test with user-supplied jacobian and weights
     fit = curve_fit(model, jacobian_model, xdata, ydata, 1 ./ yvars, p0)

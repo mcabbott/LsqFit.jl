@@ -11,7 +11,7 @@ module LsqFit
            dof, coef, nobs, mse, rss,
            stderror, weights, residuals
 
-    using Distributions
+    # using Distributions # M1
     using OptimBase
     using LinearAlgebra
     using ForwardDiff
